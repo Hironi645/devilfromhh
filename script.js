@@ -1267,7 +1267,7 @@ function getSelectedAdminName() { const r = document.querySelector('input[name="
 function generateWhatsAppMessage(formData) {
   const date = new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
   const communityName = siteSettings.name || 'DEVIL REIGN';
-  return `*${communityName} — FORM MEMBER v8.0*\n━━━━━━━━━━━━━━━\n\n📅 *Tanggal:* ${date}\n\n👤 *Nama:* ${formData.nama}\n🎂 *Umur:* ${formData.umur} tahun\n🎮 *USN Hotel Hideaway:* ${formData.usnHotel}\n📍 *Asal Kota:* ${formData.asalKota}\n💬 *Alasan Bergabung:*\n${formData.alasan}\n\n━━━━━━━━━━━━━━━\n*STATUS:* ⏳ MENUNGGU PERSETUJUAN ADMIN\n━━━━━━━━━━━━━━━\n\n۝ ${siteSettings.tagline || 'Satu Reign, Satu Kekuasaan'} ۝`;
+  return `*${communityName} — FORM MEMBER v10.0*\n━━━━━━━━━━━━━━━\n\n📅 *Tanggal:* ${date}\n\n👤 *Nama:* ${formData.nama}\n🎂 *Umur:* ${formData.umur} tahun\n🎮 *USN Hotel Hideaway:* ${formData.usnHotel}\n📍 *Asal Kota:* ${formData.asalKota}\n💬 *Alasan Bergabung:*\n${formData.alasan}\n\n━━━━━━━━━━━━━━━\n*STATUS:* ⏳ MENUNGGU PERSETUJUAN ADMIN\n━━━━━━━━━━━━━━━\n\n۝ ${siteSettings.tagline || 'Satu Reign, Satu Kekuasaan'} ۝`;
 }
 
 // ===== SAVE TO FIREBASE =====
