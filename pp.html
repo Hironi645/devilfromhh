@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Server Suspended</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0f19;
+  color: #fff;
+}
+
+/* Header */
+.header {
+  background: #12182b;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+  color: #4da3ff;
+}
+
+.status {
+  background: #ff3b3b;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+/* Card */
+.card {
+  background: #12182b;
+  padding: 40px;
+  border-radius: 15px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(77,163,255,0.15);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+  animation: pulse 2s infinite;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Info box */
+.info {
+  text-align: left;
+  background: #0b0f19;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.info p {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #ccc;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="logo">☁️ Cloud Node</div>
+  <div class="status">SUSPENDED</div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="icon">🚫</div>
+    <h1>Server Suspended</h1>
+    <div class="desc">
+      Akses ke server ini telah dihentikan karena masa aktif layanan telah berakhir.<br>
+      Silakan hubungi penyedia layanan untuk informasi lebih lanjut.
+    </div>
+
+    <div class="info">
+      <p><b>Status:</b> Expired</p>
+      <p><b>Node:</b> VPS-56</p>
+      <p><b>IP Address:</b> 192.168.1.1</p>
+      <p><b>Expired Date:</b> 10 April 2026</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Cloud Infrastructure System
+</div>
+
+</body>
+</html>
