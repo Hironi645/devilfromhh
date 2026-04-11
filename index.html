@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instance Stopped</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f3f3;
+  color: #16191f;
+}
+
+/* Top Bar */
+.topbar {
+  background: #232f3e;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Status */
+.status {
+  display: inline-block;
+  background: #d13212;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+/* Title */
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Info Box */
+.info {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  background: #fafafa;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  color: #555;
+}
+
+.value {
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="logo">☁️ Cloud Console</div>
+  <div>Region: ap-southeast-1</div>
+</div>
+
+<div class="container">
+  <div class="status">STOPPED</div>
+  
+  <h1>Instance Unavailable</h1>
+  <div class="desc">
+    Instance ini tidak dapat diakses karena status saat ini adalah <b>stopped</b> atau masa aktif layanan telah berakhir.
+  </div>
+
+  <div class="info">
+    <div class="row">
+      <div class="label">Instance ID</div>
+      <div class="value">i-0a12bc34de56fgh78</div>
+    </div>
+    <div class="row">
+      <div class="label">Public IP</div>
+      <div class="value">192.168.1.1</div>
+    </div>
+    <div class="row">
+      <div class="label">Status</div>
+      <div class="value">Stopped</div>
+    </div>
+    <div class="row">
+      <div class="label">Region</div>
+      <div class="value">ap-southeast-1</div>
+    </div>
+    <div class="row">
+      <div class="label">Last Check</div>
+      <div class="value">11 April 2026</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Cloud Infrastructure Services
+</div>
+
+</body>
+</html>
