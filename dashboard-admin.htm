@@ -3,67 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEVIL REIGN — Control Panel v11.0</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<title>Instance Stopped</title>
+
 <style>
-:root{
-  --red:#C1121F;--red-hi:#FF3B4E;--red-dim:rgba(193,18,31,0.13);
-  --bg:#06060E;--s1:#0B0B16;--s2:#10101C;--s3:#161626;--s4:#1C1C30;
-  --bd:rgba(255,255,255,0.055);--bd2:rgba(255,255,255,0.1);
-  --txt:#EAEAF5;--sub:rgba(234,234,245,0.48);--dim:rgba(234,234,245,0.22);
-  --ok:#00CC7A;--warn:#F5A623;--info:#3D8EFF;--purple:#8B5CF6;--pink:#F43F7A;--cyan:#06C5DF;--gold:#FFD700;
-  --sw:252px;--hh:58px;--r:12px;--r2:8px;--ease:cubic-bezier(0.16,1,0.3,1);
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f3f3;
+  color: #16191f;
 }
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
-html{scroll-behavior:smooth;}
-body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden;}
 
-/* AMBIENT */
-.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;}
-.ambient::before{content:'';position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(193,18,31,0.09) 0%,transparent 60%);border-radius:50%;animation:amb 18s ease-in-out infinite alternate;}
-.ambient::after{content:'';position:absolute;width:500px;height:500px;bottom:-100px;left:-80px;background:radial-gradient(circle,rgba(61,142,255,0.06) 0%,transparent 60%);border-radius:50%;animation:amb 24s ease-in-out infinite alternate-reverse;}
-@keyframes amb{0%{transform:translate(0,0)}100%{transform:translate(40px,28px)}}
+/* Top Bar */
+.topbar {
+  background: #232f3e;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
 
-/* ===== LOGIN ===== */
-#loginScreen{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:var(--bg);padding:20px;}
-.lbox{width:100%;max-width:380px;background:var(--s1);border:1px solid var(--bd2);border-radius:22px;padding:40px 36px;position:relative;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.7),0 0 80px rgba(193,18,31,0.06);}
-.lbox::before{content:'';position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);}
-.llogo{text-align:center;margin-bottom:32px;}
-.llogo-icon{width:58px;height:58px;background:linear-gradient(135deg,var(--red),#8B0010);border-radius:16px;display:inline-flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;margin-bottom:12px;box-shadow:0 8px 28px rgba(193,18,31,0.45);}
-.llogo h1{font-size:17px;font-weight:800;letter-spacing:3px;color:var(--txt);}
-.llogo p{font-size:9.5px;color:var(--sub);margin-top:4px;font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
-.lgrp{margin-bottom:13px;position:relative;}
-.lgrp label{display:block;font-size:9px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;cursor:pointer;}
-.linp{width:100%;padding:11px 14px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r2);color:var(--txt);font-size:13px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color .2s,box-shadow .2s;}
-.linp:focus{border-color:var(--red);box-shadow:0 0 0 3px var(--red-dim);}
-.lbtn{width:100%;padding:13px;background:linear-gradient(135deg,var(--red),#8B0010);border:none;border-radius:var(--r2);color:#fff;font-size:13px;font-weight:700;font-family:'Outfit',sans-serif;letter-spacing:2px;cursor:pointer;margin-top:6px;transition:all .2s;box-shadow:0 6px 24px rgba(193,18,31,0.4);}
-.lbtn:hover{transform:translateY(-1px);box-shadow:0 10px 32px rgba(193,18,31,0.55);}
-.lerr{color:var(--red-hi);font-size:11px;text-align:center;margin-top:10px;display:none;padding:8px;background:rgba(193,18,31,0.1);border-radius:6px;}
-.role-badge-login{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:9px;font-weight:700;margin-bottom:6px;}
-.role-owner{background:rgba(255,215,0,0.15);color:var(--gold);border:1px solid rgba(255,215,0,0.3);}
-.role-admin{background:var(--red-dim);color:var(--red-hi);border:1px solid rgba(193,18,31,0.3);}
+.logo {
+  font-weight: bold;
+}
 
-/* ===== APP ===== */
-#appShell{display:none;}
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
-/* ===== MOBILE OVERLAY ===== */
-.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:98;backdrop-filter:blur(4px);}
-@media(max-width:768px){.mob-overlay.show{display:block;}}
+/* Status */
+.status {
+  display: inline-block;
+  background: #d13212;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
 
-/* ===== MOBILE HEADER ===== */
-.mob-hdr{display:none;position:fixed;top:0;left:0;right:0;height:54px;background:rgba(6,6,14,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);z-index:99;align-items:center;padding:0 16px;gap:12px;}
-@media(max-width:768px){.mob-hdr{display:flex;}}
-.mob-menu-btn{width:38px;height:38px;background:var(--s2);border:1px solid var(--bd);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
-.mob-menu-btn svg{width:18px;height:18px;color:var(--txt);}
-.mob-title{font-size:13px;font-weight:700;flex:1;}
-.mob-role{font-size:9px;color:var(--sub);}
-.mob-logout{padding:6px 11px;background:var(--red-dim);border:1px solid rgba(193,18,31,0.2);border-radius:6px;color:var(--red-hi);font-size:11px;font-weight:600;cursor:pointer;}
+/* Title */
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-/* ===== SIDEBAR ===== */
-.sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sw);background:var(--s1);border-right:1px solid var(--bd);z-index:100;display:flex;flex-direction:column;transition:transform .3s var(--ease);}
-@media(max-width:768px){.sidebar{transform:translateX(-100%);top:0;z-index:200;}.sidebar.mob-open{transform:translateX(0);}}
+.desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Info Box */
+.info {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  background: #fafafa;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  color: #555;
+}
+
+.value {
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="logo">☁️ Cloud Console</div>
+  <div>Region: ap-southeast-1</div>
+</div>
+
+<div class="container">
+  <div class="status">STOPPED</div>
+  
+  <h1>Instance Unavailable</h1>
+  <div class="desc">
+    Instance ini tidak dapat diakses karena status saat ini adalah <b>stopped</b> atau masa aktif layanan telah berakhir.
+  </div>
+
+  <div class="info">
+    <div class="row">
+      <div class="label">Instance ID</div>
+      <div class="value">i-0a12bc34de56fgh78</div>
+    </div>
+    <div class="row">
+      <div class="label">Public IP</div>
+      <div class="value">192.168.1.1</div>
+    </div>
+    <div class="row">
+      <div class="label">Status</div>
+      <div class="value">Stopped</div>
+    </div>
+    <div class="row">
+      <div class="label">Region</div>
+      <div class="value">ap-southeast-1</div>
+    </div>
+    <div class="row">
+      <div class="label">Last Check</div>
+      <div class="value">11 April 2026</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Cloud Infrastructure Services
+</div>
+
+</body>
+</html>@media(max-width:768px){.sidebar{transform:translateX(-100%);top:0;z-index:200;}.sidebar.mob-open{transform:translateX(0);}}
 .sb-top{padding:16px 16px 12px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;}
 .sb-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--red),#8B0010);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 4px 14px rgba(193,18,31,0.4);flex-shrink:0;}
 .sb-brand h2{font-size:12px;font-weight:800;letter-spacing:1.5px;}
